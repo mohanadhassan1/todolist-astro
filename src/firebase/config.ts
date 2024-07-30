@@ -6,12 +6,12 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBrqZ0sn89W-TOzkhUB04DMwaWJm1pe8_8",
-  authDomain: "todo-auth-bc993.firebaseapp.com",
-  projectId: "todo-auth-bc993",
-  storageBucket: "todo-auth-bc993.appspot.com",
-  messagingSenderId: "429050150627",
-  appId: "1:429050150627:web:956fec6f2517a84f0c8fd6"
+  apiKey: "AIzaSyB-g7_UtMtWpH4GQi8BQW4x-lV5w_zKM2c",
+  authDomain: "todolist-astro.firebaseapp.com",
+  projectId: "todolist-astro",
+  storageBucket: "todolist-astro.appspot.com",
+  messagingSenderId: "284719666072",
+  appId: "1:284719666072:web:5a8db6954256418de351ed"
 };
 
 // Initialize Firebase
