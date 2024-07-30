@@ -12,25 +12,25 @@ const TodoList = ({ todos = [], handleOnClick, onDelete }: Props) => {
       {todos.length === 0 && <p className="text-gray-400 text-center">No todos yet!</p>}
       {todos.map((todo) => (
         <div
-          key={todo.id}
+          key={String(todo.id)}
           className="flex items-center justify-between p-2 hover:bg-zinc-700 rounded-lg"
         >
           <div className="flex items-center space-x-3">
             <input
               type="checkbox"
-              onChange={() => handleOnClick(todo.id)}
+              onChange={() => handleOnClick(Number(todo.id))}
               checked={todo.status === "completed"}
               className="h-5 w-5 cursor-pointer"
             />
             <Label
-              htmlFor={todo.id}
+              htmlFor={String(todo.id)}
               className={`text-lg ${todo.status === "completed" ? "line-through text-gray-600" : "text-gray-200"}`}
             >
               {todo.todo}
             </Label>
           </div>
           <button
-            onClick={() => onDelete(todo.id)}
+            onClick={() => onDelete(Number(todo.id))}
             className="text-red-500 hover:text-red-700"
           >
             <svg
