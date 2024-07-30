@@ -1,11 +1,19 @@
 ---
-import Button from "@/components/Button.astro";
+import Button from "@/components/ui/Button.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import MaxWrapper from "@/components/MaxWrapper";
+import Todo from "@/components/Todo";
+
+const clientOnlyTodo = true;
 ---
 
 <BaseLayout>
   <div class="grid gap-12">
-    <h1>todo</h1>
+    <MaxWrapper client:only>
+      <Todo client:only />
+    </MaxWrapper>
+
     <form id="logout-form">
       <Button>Logout</Button>
     </form>
