@@ -1,0 +1,42 @@
+---
+import Button from "@/components/Button.astro";
+import Input from "@/components/Input.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div class="grid gap-8 max-w-[400px] w-full">
+    <h1 class="text-red-400 font-bold text-xl">Login to Your Account</h1>
+    <form class="grid gap-4" id="login-account">
+      <Input name="email" label="Your Email" type="email" />
+      <Input name="password" label="Your Password" type="password" />
+      <Button intent={"accent"}>Login</Button>
+      <a href="/new" class="text-blue-300 hover:text-blue-400">Create new account</a>
+    </form>
+  </div>
+
+  <script>
+    import { isInputError } from "astro:actions";
+    import { actions } from "astro:actions";
+
+    const loginForm = document.querySelector(
+      "#login-account"
+    ) as HTMLFormElement;
+
+    loginForm.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const { error, data } = await actions.loginAccount.safe(
+        new FormData(loginForm)
+      );
+      if (error) {
+        console.log(error);
+        if (isInputError(error)) {
+          console.log(error.fields);
+        }
+        return;
+      }
+
+      window.location.reload();
+    });
+  </script>
+</BaseLayout>
